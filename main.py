@@ -102,7 +102,8 @@ async def battle(toad_1: Toad, toad_2: Toad) -> int:
             return 1
         if toad_2.health > 0:
             damage = toad_1.hit() - toad_2.block()
-            toad_1.health -= damage
+            if damage > 0:
+                toad_1.health -= damage
         else:
             return 0
 
